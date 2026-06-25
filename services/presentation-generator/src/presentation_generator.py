@@ -203,7 +203,7 @@ def render_design_html(title: str) -> str:
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{esc(title)} · Novactiv</title>
+<title>{esc(title)} · Office</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Fraunces:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
@@ -693,9 +693,9 @@ def render_html(data: dict[str, Any]) -> str:
       <div class="contact-inner">
         <div>
           <h2>Готово к обсуждению</h2>
-          <div class="contact-line">Создано: {esc(generated_at)}<br>{esc(contact or "Novactiv")}</div>
+          <div class="contact-line">Создано: {esc(generated_at)}<br>{esc(contact or "Office")}</div>
         </div>
-        <div class="contact-line">Источник: {esc(data.get("source_url") or "WordPress")}<br>Novactiv</div>
+        <div class="contact-line">Источник: {esc(data.get("source_url") or "WordPress")}<br>Office</div>
       </div>
     </div>
   </main>

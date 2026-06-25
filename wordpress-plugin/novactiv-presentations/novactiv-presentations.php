@@ -1,20 +1,20 @@
 <?php
 /**
- * Plugin Name: Novactiv Presentations
- * Description: Отдает нормализованные данные объектов Novactiv по REST API для n8n и генератора презентаций.
+ * Plugin Name: Office Presentations
+ * Description: Отдает нормализованные данные объектов Office по REST API для n8n и генератора презентаций.
  * Version: 0.1.0
- * Author: Novactiv
- * Text Domain: novactiv-presentations
+ * Author: Office
+ * Text Domain: office-presentations
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-final class Novactiv_Presentations_Plugin
+final class Office_Presentations_Plugin
 {
-    private const OPTION_API_TOKEN = 'novactiv_presentations_api_token';
-    private const META_PRESENTATION_URL = '_novactiv_presentation_url';
+    private const OPTION_API_TOKEN = 'office_presentations_api_token';
+    private const META_PRESENTATION_URL = '_office_presentation_url';
 
     public function __construct()
     {
@@ -26,17 +26,17 @@ final class Novactiv_Presentations_Plugin
     public function register_settings_page(): void
     {
         add_options_page(
-            'Novactiv Presentations',
-            'Novactiv Presentations',
+            'Office Presentations',
+            'Office Presentations',
             'manage_options',
-            'novactiv-presentations',
+            'office-presentations',
             [$this, 'render_settings_page']
         );
     }
 
     public function register_settings(): void
     {
-        register_setting('novactiv_presentations', self::OPTION_API_TOKEN, [
+        register_setting('office_presentations', self::OPTION_API_TOKEN, [
             'type' => 'string',
             'sanitize_callback' => 'sanitize_text_field',
             'default' => '',
@@ -50,9 +50,9 @@ final class Novactiv_Presentations_Plugin
         }
         ?>
         <div class="wrap">
-            <h1>Novactiv Presentations</h1>
+            <h1>Office Presentations</h1>
             <form method="post" action="options.php">
-                <?php settings_fields('novactiv_presentations'); ?>
+                <?php settings_fields('office_presentations'); ?>
                 <table class="form-table" role="presentation">
                     <tr>
                         <th scope="row"><label for="<?php echo esc_attr(self::OPTION_API_TOKEN); ?>">API token</label></th>
@@ -70,7 +70,7 @@ final class Novactiv_Presentations_Plugin
 
     public function register_rest_routes(): void
     {
-        register_rest_route('novactiv/v1', '/property/(?P<id>\d+)', [
+        register_rest_route('office/v1', '/property/(?P<id>\d+)', [
             'methods' => \WP_REST_Server::READABLE,
             'callback' => [$this, 'rest_property'],
             'permission_callback' => [$this, 'can_read_rest_property'],
@@ -92,7 +92,7 @@ final class Novactiv_Presentations_Plugin
             return true;
         }
 
-        $provided = (string) $request->get_header('x-novactiv-token');
+        $provided = (string) $request->get_header('x-office-token');
         return hash_equals($token, $provided);
     }
 
@@ -102,7 +102,7 @@ final class Novactiv_Presentations_Plugin
         $post = get_post($post_id);
 
         if (!$post || $post->post_type !== 'property' || $post->post_status !== 'publish') {
-            return new \WP_Error('novactiv_property_not_found', 'Объект не найден.', ['status' => 404]);
+            return new \WP_Error('office_property_not_found', 'Объект не найден.', ['status' => 404]);
         }
 
         return rest_ensure_response($this->normalize_property($post));
@@ -393,4 +393,4 @@ final class Novactiv_Presentations_Plugin
     }
 }
 
-new Novactiv_Presentations_Plugin();
+new Office_Presentations_Plugin();

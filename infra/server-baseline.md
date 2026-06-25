@@ -17,8 +17,8 @@
 - Docker daemon log rotation configured:
   - max size: 10 MB
   - max files: 5
-- Project directory created at `/opt/novactiv-leads`.
-- Environment directory created at `/opt/novactiv-leads/env`.
+- Project directory created at `/opt/office-leads`.
+- Environment directory created at `/opt/office-leads/env`.
 - Firewall enabled through UFW.
 - Allowed inbound ports:
   - `22/tcp` SSH
@@ -34,7 +34,7 @@
 ## Server Directory Layout
 
 ```text
-/opt/novactiv-leads/
+/opt/office-leads/
   backups/
     postgres/
     storage/

@@ -1,6 +1,6 @@
 # Lead Intelligence UI
 
-Separate frontend prototype for the Novactiv B2B Lead Intelligence service.
+Separate frontend prototype for the Office B2B Lead Intelligence service.
 
 The service now has a small Python backend and Supabase persistence:
 

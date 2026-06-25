@@ -2,7 +2,7 @@
 
 ## Mission
 
-Deploy and operate the Novactiv Leads infrastructure on Ubuntu 24.04 with a secure, recoverable baseline for Supabase self-hosted, n8n, Docker, reverse proxy, firewall, SSH, backups, and monitoring.
+Deploy and operate the Office Leads infrastructure on Ubuntu 24.04 with a secure, recoverable baseline for Supabase self-hosted, n8n, Docker, reverse proxy, firewall, SSH, backups, and monitoring.
 
 The DevOps agent owns the server foundation. It should make deployment repeatable, keep secrets out of the repository, document operational decisions, and avoid risky shortcuts that make later recovery harder.
 
@@ -35,7 +35,7 @@ The DevOps agent owns the server foundation. It should make deployment repeatabl
 ## Recommended Server Layout
 
 ```text
-/opt/novactiv-leads/
+/opt/office-leads/
   compose/
     docker-compose.yml
     supabase/
@@ -72,7 +72,7 @@ Permissions:
 - Set hostname and timezone.
 - Create a non-root deployment user, for example `deploy`.
 - Add the deployment user to the `sudo` and `docker` groups only when needed.
-- Create `/opt/novactiv-leads` and the directory layout above.
+- Create `/opt/office-leads` and the directory layout above.
 - Confirm disk size, memory, CPU, and swap are suitable for Supabase plus n8n.
 - Install basic tools: `curl`, `git`, `ca-certificates`, `gnupg`, `ufw`, `jq`, `rsync`.
 

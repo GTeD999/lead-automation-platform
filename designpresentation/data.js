@@ -7,7 +7,7 @@ window.PROPERTIES = {
     category: "commercial",
     property_type: "rent",
     commercial_type: "office",
-    source_url: "https://novactiv.ru/object/MX-4187",
+    source_url: "https://example.com/object/MX-4187",
     quickdeal_id: "QD-89421",
     internal_id: "NV-MX-4187",
     published_at: "2026-04-12",
@@ -79,8 +79,8 @@ window.PROPERTIES = {
     manager: {
       name: "Анна Соколова",
       phone: "+7 (495) 120-34-56",
-      email: "a.sokolova@novactiv.ru",
-      organization: "Novactiv Commercial",
+      email: "a.sokolova@example.com",
+      organization: "Office Commercial",
       position: "Старший консультант, отдел офисной недвижимости",
       photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"
     },
@@ -99,7 +99,7 @@ window.PROPERTIES = {
     category: "commercial",
     property_type: "rent",
     commercial_type: "warehouse",
-    source_url: "https://novactiv.ru/object/WH-2210",
+    source_url: "https://example.com/object/WH-2210",
     quickdeal_id: "QD-77110",
     internal_id: "NV-WH-2210",
     published_at: "2026-03-28",
@@ -152,8 +152,8 @@ window.PROPERTIES = {
     manager: {
       name: "Дмитрий Воронин",
       phone: "+7 (495) 120-34-78",
-      email: "d.voronin@novactiv.ru",
-      organization: "Novactiv Industrial",
+      email: "d.voronin@example.com",
+      organization: "Office Industrial",
       position: "Руководитель направления «Складская недвижимость»",
       photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
     },
@@ -170,7 +170,7 @@ window.PROPERTIES = {
     title: "Резиденция «Скай-Вью», 4-комнатная квартира с террасой",
     category: "residential",
     property_type: "sale",
-    source_url: "https://novactiv.ru/object/RS-9001",
+    source_url: "https://example.com/object/RS-9001",
     quickdeal_id: "QD-90011",
     internal_id: "NV-RS-9001",
     published_at: "2026-04-20",
@@ -227,8 +227,8 @@ window.PROPERTIES = {
     manager: {
       name: "Екатерина Лазарева",
       phone: "+7 (495) 120-34-90",
-      email: "e.lazareva@novactiv.ru",
-      organization: "Novactiv Private",
+      email: "e.lazareva@example.com",
+      organization: "Office Private",
       position: "Эксперт по элитной жилой недвижимости",
       photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
     },

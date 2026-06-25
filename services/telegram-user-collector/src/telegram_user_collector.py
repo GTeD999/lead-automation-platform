@@ -95,7 +95,7 @@ def get_config() -> Config:
         service_role_key=os.environ["SUPABASE_SERVICE_ROLE_KEY"],
         dry_run=os.environ.get("COLLECTOR_DRY_RUN", "true").lower() == "true",
         limit_per_source=int(os.environ.get("TELEGRAM_LIMIT_PER_SOURCE", "50")),
-        session_path=os.environ.get("TELEGRAM_SESSION_PATH", "/data/novactiv-telegram"),
+        session_path=os.environ.get("TELEGRAM_SESSION_PATH", "/data/office-telegram"),
         proxy_url=os.environ.get("TELEGRAM_PROXY") or None,
         bot_token=os.environ.get("TELEGRAM_BOT_TOKEN") or None,
         notify_chat_id=os.environ.get("TELEGRAM_NOTIFY_CHAT_ID") or None,

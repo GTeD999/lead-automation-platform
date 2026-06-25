@@ -1,4 +1,4 @@
-# Novactiv Leads Roadmap
+# Office Leads Roadmap
 
 ## Product Vision
 
@@ -22,13 +22,13 @@ Deliverables:
 - Firewall configured for SSH, HTTP, and HTTPS.
 - Dedicated deployment user created.
 - Root login and password SSH reduced after key-based access is ready.
-- Project directories created under `/opt/novactiv`.
+- Project directories created under `/opt/office`.
 - Backup directory and restore procedure documented.
 
 Notes:
 - Docker and Docker Compose were installed on the server.
 - Firewall is enabled and allows `22/tcp`, `80/tcp`, and `443/tcp`.
-- Project directories were created under `/opt/novactiv-leads`.
+- Project directories were created under `/opt/office-leads`.
 - Supabase and n8n were deployed through Docker Compose.
 - Initial schema migration was applied.
 - Daily local Postgres backup is configured.

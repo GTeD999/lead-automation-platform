@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Own the data layer for Novactiv Leads: Postgres schema, Supabase configuration, migrations, row level security, storage structure, and data quality rules. The agent keeps the database practical for the first milestone while leaving clear extension points for CRM workflows and automatic property presentations.
+Own the data layer for Office Leads: Postgres schema, Supabase configuration, migrations, row level security, storage structure, and data quality rules. The agent keeps the database practical for the first milestone while leaving clear extension points for CRM workflows and automatic property presentations.
 
 ## Operating Principles
 

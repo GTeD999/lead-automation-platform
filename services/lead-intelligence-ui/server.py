@@ -336,8 +336,8 @@ def http_get_json(url: str, headers: dict[str, str] | None = None, timeout: int 
         method="GET",
         headers={
             "Accept": "application/json",
-            "User-Agent": "NovactivLeadIntelligence/0.1 (contact: novactiv.ru)",
-            "HH-User-Agent": "NovactivLeadIntelligence/0.1 (info@novactiv.ru)",
+            "User-Agent": "OfficeLeadIntelligence/0.1 (contact: example.com)",
+            "HH-User-Agent": "OfficeLeadIntelligence/0.1 (info@example.com)",
             **(headers or {}),
         },
     )

@@ -5,19 +5,19 @@
 Main server path:
 
 ```text
-/opt/novactiv-leads
+/opt/office-leads
 ```
 
 Supabase Docker setup:
 
 ```text
-/opt/novactiv-leads/compose/supabase-repo/docker
+/opt/office-leads/compose/supabase-repo/docker
 ```
 
 Secrets:
 
 ```text
-/opt/novactiv-leads/compose/supabase-repo/docker/.env
+/opt/office-leads/compose/supabase-repo/docker/.env
 ```
 
 Do not copy `.env` into the repository.
@@ -27,14 +27,14 @@ Do not copy `.env` into the repository.
 Always include all four compose files:
 
 ```bash
-cd /opt/novactiv-leads/compose/supabase-repo/docker
+cd /opt/office-leads/compose/supabase-repo/docker
 docker compose -f docker-compose.yml -f docker-compose.caddy.yml -f docker-compose.security.yml -f docker-compose.n8n.yml -f docker-compose.lead-ui.yml -f docker-compose.telegram.yml ps
 ```
 
 Start or update:
 
 ```bash
-cd /opt/novactiv-leads/compose/supabase-repo/docker
+cd /opt/office-leads/compose/supabase-repo/docker
 docker compose -f docker-compose.yml -f docker-compose.caddy.yml -f docker-compose.security.yml -f docker-compose.n8n.yml -f docker-compose.lead-ui.yml -f docker-compose.telegram.yml up -d
 ```
 
@@ -111,19 +111,19 @@ Key tables verified:
 Postgres backup script:
 
 ```text
-/opt/novactiv-leads/scripts/backup-supabase-postgres.sh
+/opt/office-leads/scripts/backup-supabase-postgres.sh
 ```
 
 Backup location:
 
 ```text
-/opt/novactiv-leads/backups/postgres
+/opt/office-leads/backups/postgres
 ```
 
 Systemd timer:
 
 ```text
-novactiv-supabase-backup.timer
+office-supabase-backup.timer
 ```
 
 Schedule:
@@ -135,7 +135,7 @@ Schedule:
 Manual backup:
 
 ```bash
-/opt/novactiv-leads/scripts/backup-supabase-postgres.sh
+/opt/office-leads/scripts/backup-supabase-postgres.sh
 ```
 
 ## Health Checks

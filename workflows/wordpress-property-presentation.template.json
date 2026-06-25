@@ -1,6 +1,6 @@
 {
-  "id": "novactivWpPresentation",
-  "name": "Novactiv: презентация объекта из WordPress",
+  "id": "officeWpPresentation",
+  "name": "Office: презентация объекта из WordPress",
   "active": true,
   "nodes": [
     {
@@ -20,7 +20,7 @@
     },
     {
       "parameters": {
-        "url": "=https://novactiv.ru/wp-json/novactiv/v1/property/{{$json.body.property_id || $json.query.property_id}}"
+        "url": "=https://example.com/wp-json/office/v1/property/{{$json.body.property_id || $json.query.property_id}}"
       },
       "id": "wordpress-property",
       "name": "WordPress: данные объекта",

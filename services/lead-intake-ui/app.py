@@ -53,7 +53,7 @@ HTML = """<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Novactiv Leads</title>
+  <title>Office Leads</title>
   <style>
     :root {
       color-scheme: light;
@@ -542,7 +542,7 @@ HTML = """<!doctype html>
   <div class="app-shell">
     <header>
       <div class="brand">
-        <h1>Novactiv Leads</h1>
+        <h1>Office Leads</h1>
         <div class="brand-sub">Автопоиск контактов по рынку недвижимости</div>
       </div>
       <div class="status-bar">
@@ -1294,7 +1294,7 @@ def format_lead_notification(lead: dict[str, Any], contacts: dict[str, list[str]
     if len(text) > 700:
         text = text[:700].rstrip() + "..."
     lines = [
-        "Новый лид Novactiv",
+        "Новый лид Office",
         f"{title}",
         f"Сегмент: {lead.get('property_segment') or 'не определен'}",
         f"Намерение: {lead.get('intent') or 'unknown'}",
@@ -1462,8 +1462,8 @@ class Handler(BaseHTTPRequestHandler):
                 city = str(payload.get("city") or "Новосибирск").strip()
                 topic = str(payload.get("topic") or "commercial").strip()
                 sample_lead = {
-                    "raw_text": f"Тестовая заявка: ищу помещение под офис в городе {city}, бюджет обсуждаем, связь @novactiv_test",
-                    "telegram_username": "novactiv_test",
+                    "raw_text": f"Тестовая заявка: ищу помещение под офис в городе {city}, бюджет обсуждаем, связь @office_test",
+                    "telegram_username": "office_test",
                     "property_segment": "commercial" if topic != "residential" else "residential",
                     "intent": "rent",
                     "source_url": "http://45.92.174.232/leads/",
