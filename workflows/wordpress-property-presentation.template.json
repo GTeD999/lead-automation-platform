@@ -1,0 +1,128 @@
+{
+  "id": "novactivWpPresentation",
+  "name": "Novactiv: презентация объекта из WordPress",
+  "active": true,
+  "nodes": [
+    {
+      "parameters": {
+        "path": "wordpress-property-presentation",
+        "httpMethod": "POST",
+        "responseMode": "responseNode"
+      },
+      "id": "webhook-trigger",
+      "name": "Запуск",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://novactiv.ru/wp-json/novactiv/v1/property/{{$json.body.property_id || $json.query.property_id}}"
+      },
+      "id": "wordpress-property",
+      "name": "WordPress: данные объекта",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { property: $json } }];"
+      },
+      "id": "wrap-property",
+      "name": "Передать объект в генератор",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://presentation-generator:8090/presentations/api/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{JSON.stringify($json)}}"
+      },
+      "id": "generate",
+      "name": "Создать презентацию",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        780,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{$json}}"
+      },
+      "id": "respond",
+      "name": "Вернуть ссылку",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1040,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Запуск": {
+      "main": [
+        [
+          {
+            "node": "WordPress: данные объекта",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WordPress: данные объекта": {
+      "main": [
+        [
+          {
+            "node": "Передать объект в генератор",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Передать объект в генератор": {
+      "main": [
+        [
+          {
+            "node": "Создать презентацию",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Создать презентацию": {
+      "main": [
+        [
+          {
+            "node": "Вернуть ссылку",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

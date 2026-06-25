@@ -1,0 +1,22 @@
+services:
+  lead-intelligence:
+    image: python:3.12-alpine
+    restart: unless-stopped
+    working_dir: /app
+    command: ["python", "server.py"]
+    environment:
+      PORT: 8091
+      STATIC_DIR: /app/dist
+      SUPABASE_URL: http://kong:8000
+      SUPABASE_SERVICE_ROLE_KEY: ${SERVICE_ROLE_KEY}
+      APIFY_TOKEN: ${APIFY_TOKEN:-}
+      APIFY_ACTOR_ID: ${APIFY_ACTOR_ID:-}
+      APIFY_DEFAULT_CITY: ${APIFY_DEFAULT_CITY:-Новосибирск}
+      APIFY_DEFAULT_LIMIT: ${APIFY_DEFAULT_LIMIT:-25}
+      HH_DEFAULT_PERIOD_DAYS: ${HH_DEFAULT_PERIOD_DAYS:-30}
+      AUTO_COLLECT_ENABLED: ${AUTO_COLLECT_ENABLED:-true}
+      AUTO_COLLECT_INTERVAL_MINUTES: ${AUTO_COLLECT_INTERVAL_MINUTES:-180}
+      AUTO_COLLECT_START_DELAY_SECONDS: ${AUTO_COLLECT_START_DELAY_SECONDS:-90}
+      AUTO_COLLECT_LOOKBACK_DAYS: ${AUTO_COLLECT_LOOKBACK_DAYS:-1}
+    volumes:
+      - /opt/novactiv-leads/services/lead-intelligence-ui:/app:ro
